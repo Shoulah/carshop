@@ -1,0 +1,32 @@
+﻿<Page x:Class="CarParts003.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarParts003"
+      
+      xmlns:VM="clr-namespace:CarParts003.ModelView"
+      mc:Ignorable="d" 
+      d:DesignHeight="359.244" d:DesignWidth="738.235"
+      Title="Page1">
+    <Page.Resources>
+        <VM:InstallModelView x:Key="K4" />
+    </Page.Resources>
+    <Grid Margin="0,0,0,10" HorizontalAlignment="Left" Width="746">
+
+
+    <Label Content="Name:" HorizontalAlignment="Left" Margin="65,39,0,0" VerticalAlignment="Top" Width="70" FontSize="14"/>
+        <Label Content="Desc 1:" HorizontalAlignment="Left" Margin="65,73,0,0" VerticalAlignment="Top" Width="70" FontSize="14"/>
+        <Label Content="Desc 2:" HorizontalAlignment="Left" Margin="65,102,0,0" VerticalAlignment="Top" Width="70" FontSize="14"/>
+        <Label Content="Desc 3:" HorizontalAlignment="Left" Margin="65,136,0,0" VerticalAlignment="Top" Width="70" FontSize="14"/>
+        <Label Content="Desc 4:" HorizontalAlignment="Left" Margin="65,170,0,0" VerticalAlignment="Top" Width="70" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="18" Margin="140,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="526" FontSize="14" Grid.ColumnSpan="2" Text="{Binding MyInstallModel.CarName, Source={StaticResource K4}}"/>
+        <TextBox HorizontalAlignment="Left" Height="18" Margin="140,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="526" FontSize="14" Grid.ColumnSpan="2" Text="{Binding MyInstallModel.InstallDisc, Source={StaticResource K4}}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="140,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="dateTimePicker1" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="120"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Margin="140,142,0,0" VerticalAlignment="Top"/>
+        
+
+
+    </Grid>
+</Page>

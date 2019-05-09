@@ -1,0 +1,226 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarParts003"
+        xmlns:dg="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:VM="clr-namespace:CarParts003.ModelView"
+       
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="CarParts003.MainWindow"
+        mc:Ignorable="d"
+       
+        Title="MainWindow" Height="430" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" VerticalContentAlignment="Stretch" MinWidth="800" MinHeight="430" KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <VM:MainModelView x:Key="K1" />
+        <VM:PartMainModelView x:Key="K2" />
+        <VM:InstallModelView x:Key="K3" />
+        <VM:ConstInfoModelView x:Key="K4"/>
+    </Window.Resources>
+    <Grid Background="#FF35203B" OpacityMask="#FF588F27" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+        <Grid x:Name="MainGrid" HorizontalAlignment="Center" Height="70" Margin="0,0,0,0" VerticalAlignment="Top" Background="#FF35203B" Width="801"  MouseDown="MainGrid_MouseDown">
+            <TextBlock x:Name="xx" FontSize="55" HorizontalAlignment="Center" Text="Car Parts" VerticalAlignment="Center" Foreground="#FFFFF4E0" />
+        </Grid>
+        <Grid Height="350" Margin="0,70,0,0" Width="250" Background="#FF35203B" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ListView x:Name="MyListView" Background="{x:Null}" Foreground="{x:Null}"  >
+
+                <StackPanel x:Name="AddcarListItem" Orientation="Horizontal"  Width="230" MouseDown="AddcarListItem_MouseDown"  >
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="Black" Opacity="0"/>
+                    </StackPanel.Background>
+                    <dg:PackIcon Kind="Car" Width="40" Height="40" Padding="20 20" VerticalAlignment="Center" Foreground="#FFFFF4E0" />
+                    <TextBlock Text="Add Car" Margin="30 0" FontSize="24" VerticalAlignment="Center" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontWeight="Bold" />
+
+                </StackPanel>
+
+                <StackPanel x:Name="AddPartListItem" Orientation="Horizontal" Width="230" MouseDown="AddPartListItem_MouseDown">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="Black" Opacity="0"/>
+                    </StackPanel.Background>
+                    <dg:PackIcon Kind="Toolbox" Width="40" Height="40" Padding="20 20" VerticalAlignment="Center" Foreground="#FFFFF4E0"/>
+                    <TextBlock Text="Add Part" Margin="30 0" FontSize="24" VerticalAlignment="Center" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="230" x:Name="Install" MouseDown="Install_MouseDown" >
+                    <dg:PackIcon Kind="Garage" Width="40" Height="40" Padding="20 20" VerticalAlignment="Center" Foreground="#FFFFF4E0" />
+                    <TextBlock Text="Install Wizard" Margin="30 0" FontSize="24" VerticalAlignment="Center" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="230" MouseDown="StackPanel_MouseDown" >
+                    <dg:PackIcon Kind="Report" Width="40" Height="40" Padding="20 20" VerticalAlignment="Center" Foreground="#FFFFF4E0"/>
+                    <TextBlock Text="Reporting" Margin="30 0" FontSize="24" VerticalAlignment="Center" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="230" MouseDown="StackPanel_MouseDown_1" >
+                    <dg:PackIcon Kind="Settings" Width="40" Height="40" Padding="20 20" VerticalAlignment="Center" Foreground="#FFFFF4E0"/>
+                    <TextBlock Text="Informations" Margin="30 0" FontSize="24" VerticalAlignment="Center" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontWeight="Bold"/>
+                </StackPanel>
+            </ListView>
+        </Grid>
+        <Grid  Margin="250,70,0,0"  Background="#FFFFF4E0">
+
+            <TabControl BorderThickness="0" Foreground="#FF35203B" x:Name="MyControlTab" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TabControl.Resources>
+
+                    <Style TargetType="{x:Type TabItem}">
+
+                        <Setter Property="Template">
+
+                            <Setter.Value>
+
+                                <ControlTemplate TargetType="{x:Type TabItem}"/>
+
+                            </Setter.Value>
+
+                        </Setter>
+
+                    </Style>
+
+                </TabControl.Resources>
+
+                <TabControl.Background>
+                    <SolidColorBrush Color="#FFF9F9F9" Opacity="0"/>
+                </TabControl.Background>
+                <TabItem x:Name="MainTab" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </TabItem>
+                <TabItem x:Name="AddCarTab">
+                    <Grid>
+                        <Label Content="Add Car Details" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                        <Label Content="Name:" HorizontalAlignment="Left" Margin="36,65,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Number:" HorizontalAlignment="Left" Margin="36,110,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Date:" HorizontalAlignment="Left" Margin="36,154,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="MyBool:" HorizontalAlignment="Left" Margin="38,201,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold" Height="31"/>
+                        <Label Content="Desc:" HorizontalAlignment="Left" Margin="36,253,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,58,26,244" FontSize="18" BorderBrush="#89000000" Text="{Binding dataModel.myName, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K1}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,244,26,56" FontSize="18" Text="{Binding dataModel.myDesc4, Source={StaticResource K1}}"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,101,291,199" FontSize="18" Text="{Binding dataModel.myDesc1, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K1}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="127,206,0,0" VerticalAlignment="Top" FontSize="18" IsChecked="{Binding dataModel.myDesc3, Source={StaticResource K1}}"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="127,160,0,0" VerticalAlignment="Top" Width="124" DisplayDate="{Binding dataModel.myDesc2, Mode=TwoWay, Source={StaticResource K1}, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="441,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Command="{Binding saveCarCommand, Source={StaticResource K1}}"/>
+                        <Button Content="Back" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_3"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="AddPartTab">
+                    <Grid>
+
+                        <Label Content="Add Part Details" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                        <Label Content="Name:" HorizontalAlignment="Left" Margin="36,65,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Number:" HorizontalAlignment="Left" Margin="36,110,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Date:" HorizontalAlignment="Left" Margin="36,154,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="MyBool:" HorizontalAlignment="Left" Margin="38,201,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold" Height="31"/>
+                        <Label Content="Desc:" HorizontalAlignment="Left" Margin="36,253,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,58,26,244" FontSize="18" BorderBrush="#89000000" Text="{Binding partDateModel.Name, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K2}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,244,26,56" FontSize="18" Text="{Binding partDateModel.Desc4, Source={StaticResource K2}}"/>
+                        <TextBox TextWrapping="Wrap" Margin="127,101,291,199" FontSize="18" Text="{Binding partDateModel.Desc1, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K2}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="127,206,0,0" VerticalAlignment="Top" FontSize="18" IsChecked="{Binding partDateModel.Desc3, Source={StaticResource K2}}"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="127,160,0,0" VerticalAlignment="Top" Width="124" DisplayDate="{Binding partDateModel.Desc2, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K2}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="441,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Command="{Binding SavePartCommand, Source={StaticResource K2}}" />
+                        <Button Content="Back" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_3"/>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem>
+                    <TabControl BorderThickness="0" Foreground="#FF35203B" x:Name="InstallTabControl">
+                        <TabControl.Resources>
+
+                            <Style TargetType="{x:Type TabItem}">
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+
+                                        <ControlTemplate TargetType="{x:Type TabItem}"/>
+
+                                    </Setter.Value>
+
+                                </Setter>
+
+                            </Style>
+
+                        </TabControl.Resources>
+
+                        <TabControl.Background>
+                            <SolidColorBrush Color="#FFF9F9F9" Opacity="0"/>
+                        </TabControl.Background>
+                        <TabItem>
+                            <Grid>
+                                <Label Content="Select Car" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                                <Button Content="Add Parts" HorizontalAlignment="Left" Margin="425,288,0,0" VerticalAlignment="Top" Width="99" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_5"/>
+                                <Button Content="Back" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_3"/>
+                                <telerik:RadAutoCompleteBox Margin="132,65,10,218" ItemsSource="{Binding searchModel.MyNames, Source={StaticResource K3}}" SelectionMode="Single" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="24" Foreground="#FF35203B" BorderBrush="#FF35203B" SelectedItem="{Binding MyInstallModel.CarName, Mode=TwoWay, Source={StaticResource K3}, UpdateSourceTrigger=PropertyChanged}" />
+                                <Label Content="Select Car:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="117" Height="37" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="24" FontWeight="Bold" Foreground="#FF35203B"/>
+                                <!--<ComboBox Height="34" Margin="80,176,202,110" IsEditable="True" ItemsSource="{Binding searchModel.MyNames, Source={StaticResource K3}}"/> -->
+                            </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <Grid>
+                                <Label Content="Add Parts" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                                <telerik:RadAutoCompleteBox Margin="132,65,10,218" ItemsSource="{Binding searchModel.MyParts, Source={StaticResource K3}}" SelectionMode="Single" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="24" Foreground="#FF35203B" BorderBrush="#FF35203B" SelectedItem="{Binding installPartModelw.PartName, Mode=TwoWay, Source={StaticResource K3}, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button Content="Save" HorizontalAlignment="Left" Margin="449,288,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Command="{Binding MySaveInstallCommand, Source={StaticResource K3}}"/>
+                                <Button Content="Add" HorizontalAlignment="Left" Margin="458,131,0,0" VerticalAlignment="Top" Width="56" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="12" FontWeight="Bold" Command="{Binding MyAddPartToListCommand, Source={StaticResource K3}}" Height="23"/>
+                                <Button Content="Back" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_4"/>
+                                <Label Content="Select Part:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="117" Height="37" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="24" FontWeight="Bold" Foreground="#FF35203B"/>
+                                <TextBox TextWrapping="Wrap" Margin="137,107,79,163" FontSize="18" BorderBrush="#89000000" Text="{Binding installPartModelw.PartDesc, Mode=TwoWay, Source={StaticResource K3}, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Label Content="Desc:" HorizontalAlignment="Left" Margin="15,119,0,0" VerticalAlignment="Top" Width="117" Height="37" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="24" FontWeight="Bold" Foreground="#FF35203B"/>
+                            </Grid>
+                        </TabItem>
+
+
+
+                    </TabControl>
+                </TabItem>
+                <TabItem>
+                    <Grid>
+                        <Label Content="Reports" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                        <Button Margin="110,111,312,129" Height="100" Width="120" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                            <Button.Background>
+                                <SolidColorBrush Color="Black" Opacity="0"/>
+                            </Button.Background>
+                            <dg:PackIcon Kind="Report" Width="100" Height="100" Foreground="#FF35203B" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Button>
+
+                        <Button Height="100" Width="120" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="312,111,110,129">
+                            <Button.Background>
+                                <SolidColorBrush Color="Black" Opacity="0"/>
+                            </Button.Background>
+                            <dg:PackIcon Kind="Report" Width="100" Height="100" Foreground="#FF35203B" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Button>
+
+                        <Label Content="Report 2" HorizontalAlignment="Left" Margin="347,216,0,0" VerticalAlignment="Top" Width="73" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" Foreground="#FF35203B" FontWeight="Bold"/>
+                        <Label Content="Report 1" HorizontalAlignment="Left" Margin="134,216,0,0" VerticalAlignment="Top" Width="73" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" Foreground="#FF35203B" FontWeight="Bold"/>
+                        <Button Content="Back" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_3"/>
+                    </Grid>
+                </TabItem>
+
+                <TabItem>
+                    <Grid>
+                        <Label Content="Constant informations" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="22" FontWeight="Bold"/>
+                        <Image HorizontalAlignment="Left" Height="145" Margin="171,42,0,0" VerticalAlignment="Top" Width="182" Source="{Binding constInfoModel.ImageSourceConst, IsAsync=True, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K4}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" IsHitTestVisible="True"/>
+                        <Label Content="Info:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="More info:" HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Date:" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+                        <Button Content="Back" HorizontalAlignment="Left" Margin="10,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Click="Button_Click_3"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="441,308,0,0" VerticalAlignment="Top" Width="75" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Command="{Binding MyConstSaveCommand, Source={StaticResource K4}}"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="441,42,0,0" VerticalAlignment="Top" Width="40" Background="#FF35203B" BorderBrush="#FF35203B" Foreground="#FFFFF4E0" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="16" FontWeight="Bold" Height="22" Command="{Binding updateImageCommand, Source={StaticResource K4}}"/>
+                        <TextBox TextWrapping="Wrap" Margin="101,192,10,108" FontSize="18" Text="{Binding constInfoModel.InfoString, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K4}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <TextBox TextWrapping="Wrap" Margin="101,263,10,37" FontSize="18" Text="{Binding constInfoModel.MoreInfoe, Mode=TwoWay, NotifyOnValidationError=True, Source={StaticResource K4}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="101,240,0,0" VerticalAlignment="Top" Width="142" SelectedDate="{Binding constInfoModel.InfoDate, Source={StaticResource K4}}"/>
+                    </Grid>
+                </TabItem>
+                <Grid Height="90" Width="96"/>
+                <Grid Height="100" Width="100"/>
+                <Label Content="Add Car" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" Foreground="#FF35203B" FontWeight="Bold"/>
+                <Label Content="Add Car Details" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF35203B" FontFamily="/CarParts003;component/myfonts/#Champagne &amp; Limousines" FontSize="18" FontWeight="Bold"/>
+
+
+
+
+
+            </TabControl>
+        </Grid>
+        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="52" Background="{x:Null}" Foreground="#FFFFF4E0" BorderBrush="{x:Null}" FontSize="24" FontWeight="Bold" Height="42" Click="Button_Click"/>
+
+    </Grid>
+</Window>
+

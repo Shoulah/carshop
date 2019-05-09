@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="MainDatabaseSource">
+  <DataContextMoniker Name="/MainDatabaseSourceDataContext" />
+  <nestedChildShapes>
+    <classShape Id="96b43585-b972-4bad-b5c3-9210e9ca5d7e" absoluteBounds="3.5, 1.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MainDatabaseSourceDataContext/Install" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d223370-f479-4818-ba7d-1c782c709de4" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="546ad593-642d-4cc8-bb89-bd9331712995" absoluteBounds="6.25, 1.125, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/MainDatabaseSourceDataContext/Install_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04e17dde-d9e2-4605-b1f6-58bfaa80cd8a" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a740215a-c74a-4198-98d4-268bc8a8495a" absoluteBounds="0.75, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MainDatabaseSourceDataContext/myCar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c587fb2a-8b30-4686-a4df-6a67e8cdf7a1" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="922f1440-fa04-40bd-92fe-10627d68d029" absoluteBounds="3.5, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/MainDatabaseSourceDataContext/myPart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be5573e4-5f06-47cd-b174-d88a6f06b82e" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.94314697265625); (6.25 : 1.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MainDatabaseSourceDataContext/Install/Install_Install_Detail" />
+      <nodes>
+        <classShapeMoniker Id="96b43585-b972-4bad-b5c3-9210e9ca5d7e" />
+        <classShapeMoniker Id="546ad593-642d-4cc8-bb89-bd9331712995" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.94314697265625); (3.5 : 1.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MainDatabaseSourceDataContext/myCar/myCar_Install" />
+      <nodes>
+        <classShapeMoniker Id="a740215a-c74a-4198-98d4-268bc8a8495a" />
+        <classShapeMoniker Id="96b43585-b972-4bad-b5c3-9210e9ca5d7e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.85659912109375); (7.25 : 4.85659912109375); (7.25 : 2.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MainDatabaseSourceDataContext/myPart/myPart_Install_Detail" />
+      <nodes>
+        <classShapeMoniker Id="922f1440-fa04-40bd-92fe-10627d68d029" />
+        <classShapeMoniker Id="546ad593-642d-4cc8-bb89-bd9331712995" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a2ba92a5-49c7-4947-8f58-69351c5fe365" absoluteBounds="8, 6.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MainDatabaseSourceDataContext/MyConstantInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10f65226-c829-4cc4-9057-c11c6c00875b" absoluteBounds="8.015, 7.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

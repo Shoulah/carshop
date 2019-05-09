@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CarParts" Class="MainDatabaseSourceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ATHLON\SQLEXPRESS;Initial Catalog=CarParts;Integrated Security=True" SettingsObjectName="CarParts003.Properties.Settings" SettingsPropertyName="CarPartsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Install" Member="Installs">
+    <Type Name="Install">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[Car ID]" Member="Car_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[other desc fields]" Member="other_desc_fields" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Install_Install_Detail" Member="Install_Details" ThisKey="ID" OtherKey="Install_ID" Type="Install_Detail" />
+      <Association Name="myCar_Install" Member="myCar" ThisKey="Car_ID" OtherKey="ID" Type="myCar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Install Details]" Member="Install_Details">
+    <Type Name="Install_Detail">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[Install ID]" Member="Install_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Part ID]" Member="Part_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Other desc fields]" Member="Other_desc_fields" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Install_Install_Detail" Member="Install" ThisKey="Install_ID" OtherKey="ID" Type="Install" IsForeignKey="true" />
+      <Association Name="myPart_Install_Detail" Member="myPart" ThisKey="Part_ID" OtherKey="ID" Type="myPart" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.myCars" Member="myCars">
+    <Type Name="myCar">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Desc1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Desc2" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Desc3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Desc4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="myCar_Install" Member="Installs" ThisKey="ID" OtherKey="Car_ID" Type="Install" />
+    </Type>
+  </Table>
+  <Table Name="dbo.myParts" Member="myParts">
+    <Type Name="myPart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Desc1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Desc2" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Desc3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="desc4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="myPart_Install_Detail" Member="Install_Details" ThisKey="ID" OtherKey="Part_ID" Type="Install_Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MyConstantInfo" Member="MyConstantInfos">
+    <Type Name="MyConstantInfo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MYINFO" Type="System.String" DbType="NChar(500)" CanBeNull="true" />
+      <Column Name="MyImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="myDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="more" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.UploadImage" Method="UploadImage">
+    <Parameter Name="ImageData" Parameter="imageData" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="CarParts003.InstallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:CarParts003"
+                      xmlns:VM="clr-namespace:CarParts003.ModelView"
+        mc:Ignorable="d"
+        Title="Add Install" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Controls:MetroWindow.Resources>
+        <VM:InstallModelView x:Key="k2" />
+    </Controls:MetroWindow.Resources>
+    <Grid>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="Button1" Content="Cancel" HorizontalAlignment="Left" Margin="425,378,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="515,378,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.474,-0.194" Click="Button_Click_1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="610,378,0,0" VerticalAlignment="Top" Width="75" Command="{Binding MyAddPartToListCommand, Source={StaticResource k2}}"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="700,378,0,0" VerticalAlignment="Top" Width="75" Command="{Binding MySaveInstallCommand, Source={StaticResource k2}}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="240,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Text="{Binding installPartModelw.PartName, Source={StaticResource k2}}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Text="{Binding MyInstallModel.CarName, Source={StaticResource k2}}"/>
+
+    </Grid>
+</Controls:MetroWindow>
